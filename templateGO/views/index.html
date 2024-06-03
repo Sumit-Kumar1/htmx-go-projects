@@ -1,0 +1,36 @@
+{{ block "index" .}}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="../css/style.css" rel="stylesheet" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.12/dist/htmx.js"
+      integrity="sha384-qbtR4rS9RrUMECUWDWM2+YGgN3U4V4ZncZ0BvUcg9FGct0jqXz3PUdVpU1p0yrXS"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    {{ template "form" .}}
+    <hr />
+    {{ template "display" .}}
+  </body>
+</html>
+{{ end }} {{ block "form" .}}
+<form hx-post="/contacts" hx-target="#contacts" hx-swap="outerHTML">
+  <label for="name">Name</label>
+  <input type="text" name="name" value="name" />
+  <label for="email">E-mail</label>
+  <input type="text" name="email" value="email" />
+  <button type="submit">Create Contact</button>
+</form>
+{{ end }} {{ block "display" . }}
+<div style="display: flex; flex-direction: column" id="contacts">
+  {{ range .Contacts}}
+  <div>Name: <span>{{ .Name }}</span> Email: <span>{{ .Email }}</span></div>
+  {{ end }}
+</div>
+{{ end }}
