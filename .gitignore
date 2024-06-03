@@ -1,3 +1,4 @@
 #adding node_modules directory to ignore
 ./**/node_modules
-
+**/**/node_modules
+**/node_modules
