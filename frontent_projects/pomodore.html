@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pomodore App</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="./pomodore.js"></script>
+    <script src="./htmx.min.js"></script>
+  </head>
+
+  <body>
+    <button type="button"><a href="/">Back</a></button>
+
+    <button id="start" hx-trigger="click" onclick="Start" hx-target="#pom">
+      Start Pomodore
+    </button>
+    <button id="reset">Reset Pomodore</button>
+    <button id="sb">Start Break</button>
+
+    <div id="pom">
+      <p>Here goes the timer for pomodore</p>
+    </div>
+  </body>
+</html>
